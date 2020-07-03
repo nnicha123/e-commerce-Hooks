@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+.navEcommerce{
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    background: #490e24;
+    color: white;
+    font-weight: bold;
+}
+.navEcommerce ul {
+    display: flex;
+    list-style-type: none
+}
+.navEcommerce ul a {
+    text-decoration: none;
+    color: white;
+}
+.navEcommerce ul li{
+    padding: 0 20px;
+}
+.navEcommerce ul li:hover{
+    opacity: 0.6;
+    background-color: rgb(54, 54, 116);
+    cursor: pointer;
+}
