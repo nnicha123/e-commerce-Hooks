@@ -7,13 +7,13 @@ function Favourites() {
 
     const [favourite, setFavourite] = useState([])
 
-    useEffect(() => {
-        axios.get('http://localhost:5000/api/favourites').then(res => setFavourite(res.data))
+    useEffect(async() => {
+       await axios.get('http://localhost:5000/api/favourites').then(res => setFavourite(res.data))
     }, [])
 
-    const removeLike = (id) => {
-        axios.delete('http://localhost:5000/api/favourites/' + id).then(res => console.log(res.data))
-        axios.get('http://localhost:5000/api/favourites').then(res => setFavourite(res.data))
+    const removeLike = async (id) => {
+        await axios.delete('http://localhost:5000/api/favourites/' + id).then(res => console.log(res.data))
+        await axios.get('http://localhost:5000/api/favourites').then(res => setFavourite(res.data))
     }
 
     return (

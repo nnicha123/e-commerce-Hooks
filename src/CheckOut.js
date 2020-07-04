@@ -7,9 +7,9 @@ function CheckOutTest() {
     const [checkout, setCheckOut] = useState([])
     const [total, setTotal] = useState(0)
 
-    useEffect(() => {
+    useEffect(async () => {
         let total = 0;
-        axios.get('http://localhost:5000/api/checkouts')
+        await axios.get('http://localhost:5000/api/checkouts')
             .then(res => {
                 setCheckOut(res.data)
                 for (let i = 0; i < res.data.length; i++) total += res.data[i].price
@@ -17,9 +17,9 @@ function CheckOutTest() {
             })
     }, [])
 
-    const removeLike = (id) => {
-        axios.delete('http://localhost:5000/api/checkouts/' + id).then(res => { console.log(res.data) })
-        axios.get('http://localhost:5000/api/checkouts')
+    const removeLike = async (id) => {
+        await axios.delete('http://localhost:5000/api/checkouts/' + id).then(res => { console.log(res.data) })
+        await axios.get('http://localhost:5000/api/checkouts')
             .then(res => {
                 let total = 0;
                 setCheckOut(res.data)
